@@ -1,0 +1,1632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vegadarsshne Gunaseelan — Fashion Stylist & Illustrator</title>
+<meta name="description" content="Vegadarsshne Gunaseelan — Fashion Stylist, Illustrator, Apparel Designer & Creative Visionary. A luxury editorial portfolio.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Josefin+Sans:wght@100;200;300;400&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f5f0e8;
+    --ivory: #faf7f2;
+    --champagne: #e8ddc8;
+    --gold: #c9a96e;
+    --gold-light: #e4c98a;
+    --warm-black: #0d0b08;
+    --charcoal: #1a1714;
+    --dark-brown: #2c2420;
+    --muted: #8a7d6e;
+    --rose: #c4a09a;
+    --blush: #e8c5bf;
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Josefin Sans', 'Helvetica Neue', sans-serif;
+    --font-editorial: 'Playfair Display', Georgia, serif;
+    --transition: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    background: var(--warm-black);
+    color: var(--cream);
+    font-family: var(--font-sans);
+    cursor: none;
+    overflow-x: hidden;
+  }
+
+  /* Custom Cursor */
+  #cursor {
+    position: fixed; width: 12px; height: 12px;
+    background: var(--gold); border-radius: 50%;
+    pointer-events: none; z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s, width 0.3s var(--transition), height 0.3s var(--transition), background 0.3s;
+    mix-blend-mode: difference;
+  }
+  #cursor-ring {
+    position: fixed; width: 40px; height: 40px;
+    border: 1px solid rgba(201,169,110,0.5); border-radius: 50%;
+    pointer-events: none; z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: transform 0.15s ease, width 0.4s var(--transition), height 0.4s var(--transition), opacity 0.3s;
+  }
+  body:hover #cursor { opacity: 1; }
+  a:hover ~ #cursor, button:hover ~ #cursor { width: 24px; height: 24px; }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 2px; }
+  ::-webkit-scrollbar-track { background: var(--warm-black); }
+  ::-webkit-scrollbar-thumb { background: var(--gold); }
+
+  /* NAVIGATION */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.5rem 3rem;
+    transition: background 0.5s, backdrop-filter 0.5s;
+  }
+  nav.scrolled {
+    background: rgba(13,11,8,0.92);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(201,169,110,0.1);
+  }
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 1.1rem; font-weight: 300; letter-spacing: 0.3em;
+    color: var(--cream); text-decoration: none;
+    text-transform: uppercase;
+  }
+  .nav-links {
+    display: flex; gap: 2.5rem; list-style: none;
+  }
+  .nav-links a {
+    font-family: var(--font-sans); font-size: 0.68rem;
+    font-weight: 300; letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(245,240,232,0.7); text-decoration: none;
+    transition: color 0.3s;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: -4px; left: 0;
+    width: 0; height: 1px; background: var(--gold);
+    transition: width 0.4s var(--transition);
+  }
+  .nav-links a:hover { color: var(--cream); }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-toggle { display: none; }
+
+  /* HERO */
+  #hero {
+    position: relative; height: 100vh; min-height: 700px;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(44,36,32,0.8) 0%, var(--warm-black) 70%);
+  }
+  .hero-grid-overlay {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(201,169,110,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,169,110,0.03) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+  .hero-shapes {
+    position: absolute; inset: 0; overflow: hidden;
+  }
+  .shape {
+    position: absolute; border-radius: 50%;
+    filter: blur(80px); opacity: 0.15;
+    animation: float 8s ease-in-out infinite;
+  }
+  .shape-1 { width: 500px; height: 500px; background: var(--gold); top: -100px; right: -100px; animation-delay: 0s; }
+  .shape-2 { width: 300px; height: 300px; background: var(--rose); bottom: 0; left: 10%; animation-delay: 3s; }
+  .shape-3 { width: 200px; height: 200px; background: var(--champagne); top: 40%; right: 20%; animation-delay: 5s; }
+
+  @keyframes float {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-20px, -30px) scale(1.05); }
+  }
+
+  /* Floating fashion sketches */
+  .sketch-float {
+    position: absolute; pointer-events: none;
+    opacity: 0.06; animation: sketchFloat 10s ease-in-out infinite;
+  }
+  .sketch-1 { top: 10%; left: 5%; animation-delay: 0s; }
+  .sketch-2 { bottom: 15%; right: 5%; animation-delay: 4s; }
+  .sketch-3 { top: 40%; left: 2%; animation-delay: 7s; }
+  @keyframes sketchFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(3deg); }
+  }
+
+  .hero-content {
+    position: relative; z-index: 10;
+    text-align: center; max-width: 1000px;
+    padding: 0 2rem;
+  }
+  .hero-eyebrow {
+    font-family: var(--font-sans); font-size: 0.65rem;
+    font-weight: 300; letter-spacing: 0.5em;
+    color: var(--gold); text-transform: uppercase;
+    margin-bottom: 2rem;
+    animation: fadeUp 1s var(--transition) both;
+  }
+  .hero-name {
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 8vw, 8rem);
+    font-weight: 300; line-height: 0.95;
+    letter-spacing: -0.01em;
+    color: var(--cream);
+    animation: fadeUp 1s var(--transition) 0.2s both;
+  }
+  .hero-name em { font-style: italic; color: var(--gold-light); }
+  .hero-subtitle {
+    margin-top: 1.5rem;
+    font-family: var(--font-sans); font-size: 0.7rem;
+    font-weight: 200; letter-spacing: 0.4em;
+    color: rgba(245,240,232,0.6); text-transform: uppercase;
+    animation: fadeUp 1s var(--transition) 0.4s both;
+  }
+  .hero-divider {
+    width: 60px; height: 1px; background: var(--gold);
+    margin: 2rem auto;
+    animation: expandWidth 1s var(--transition) 0.6s both;
+  }
+  @keyframes expandWidth { from { width: 0; opacity: 0; } to { width: 60px; opacity: 1; } }
+  .hero-cta {
+    display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    margin-top: 2.5rem;
+    animation: fadeUp 1s var(--transition) 0.7s both;
+  }
+  .btn {
+    font-family: var(--font-sans); font-size: 0.65rem;
+    font-weight: 300; letter-spacing: 0.25em; text-transform: uppercase;
+    padding: 1rem 2rem; text-decoration: none;
+    transition: all 0.4s var(--transition);
+    cursor: none;
+  }
+  .btn-primary {
+    background: var(--gold); color: var(--warm-black);
+    border: 1px solid var(--gold);
+  }
+  .btn-primary:hover {
+    background: transparent; color: var(--gold);
+    transform: translateY(-2px);
+  }
+  .btn-outline {
+    background: transparent; color: var(--cream);
+    border: 1px solid rgba(245,240,232,0.3);
+  }
+  .btn-outline:hover {
+    border-color: var(--gold); color: var(--gold);
+    transform: translateY(-2px);
+  }
+  .hero-scroll {
+    position: absolute; bottom: 3rem; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
+    animation: fadeIn 2s ease 1.5s both;
+  }
+  .scroll-label {
+    font-size: 0.6rem; letter-spacing: 0.35em;
+    color: rgba(245,240,232,0.4); text-transform: uppercase;
+  }
+  .scroll-line {
+    width: 1px; height: 50px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+  @keyframes scrollPulse {
+    0% { transform: scaleY(0); transform-origin: top; }
+    50% { transform: scaleY(1); transform-origin: top; }
+    51% { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+  /* ABOUT */
+  #about {
+    padding: 10rem 0;
+    position: relative;
+  }
+  .about-container {
+    max-width: 1200px; margin: 0 auto;
+    padding: 0 3rem;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 6rem; align-items: center;
+  }
+  .about-image-frame {
+    position: relative;
+  }
+  .about-img-placeholder {
+    width: 100%; aspect-ratio: 3/4;
+    background: linear-gradient(135deg, var(--dark-brown) 0%, rgba(201,169,110,0.2) 50%, var(--charcoal) 100%);
+    position: relative; overflow: hidden;
+    border: 1px solid rgba(201,169,110,0.2);
+  }
+  .about-img-art {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .frame-accent {
+    position: absolute;
+    width: 80%; height: 80%; top: 10%; left: 10%;
+    border: 1px solid rgba(201,169,110,0.15);
+  }
+  .corner-accent {
+    position: absolute; width: 20px; height: 20px;
+    border-color: var(--gold);
+    border-style: solid;
+  }
+  .corner-accent.tl { top: -1px; left: -1px; border-width: 1px 0 0 1px; }
+  .corner-accent.tr { top: -1px; right: -1px; border-width: 1px 1px 0 0; }
+  .corner-accent.bl { bottom: -1px; left: -1px; border-width: 0 0 1px 1px; }
+  .corner-accent.br { bottom: -1px; right: -1px; border-width: 0 1px 1px 0; }
+  .img-label {
+    position: absolute; bottom: -1.5rem; right: 0;
+    font-family: var(--font-sans); font-size: 0.6rem;
+    letter-spacing: 0.3em; color: var(--muted); text-transform: uppercase;
+  }
+  .about-badge {
+    position: absolute; top: 2rem; right: -2rem;
+    width: 100px; height: 100px;
+    border-radius: 50%;
+    border: 1px solid var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    background: var(--warm-black);
+  }
+  .badge-text {
+    font-family: var(--font-sans); font-size: 0.5rem;
+    letter-spacing: 0.2em; text-align: center;
+    color: var(--gold); text-transform: uppercase;
+    line-height: 1.8;
+  }
+  .about-text {}
+  .section-label {
+    font-family: var(--font-sans); font-size: 0.6rem;
+    font-weight: 300; letter-spacing: 0.5em;
+    color: var(--gold); text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .section-label::before {
+    content: ''; display: block; width: 30px; height: 1px; background: var(--gold);
+  }
+  .about-heading {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-weight: 300; line-height: 1.1;
+    color: var(--cream); margin-bottom: 1.5rem;
+  }
+  .about-heading em { font-style: italic; color: var(--gold-light); }
+  .about-body {
+    font-family: var(--font-sans); font-size: 0.82rem;
+    font-weight: 300; line-height: 2.2;
+    color: rgba(245,240,232,0.65);
+    margin-bottom: 1.5rem;
+  }
+  .about-stats {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem; margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(201,169,110,0.15);
+  }
+  .stat-num {
+    font-family: var(--font-display); font-size: 2.5rem;
+    font-weight: 300; color: var(--gold);
+    display: block; line-height: 1;
+  }
+  .stat-label {
+    font-family: var(--font-sans); font-size: 0.58rem;
+    letter-spacing: 0.2em; color: var(--muted);
+    text-transform: uppercase; margin-top: 0.4rem;
+    display: block;
+  }
+
+  /* SKILLS */
+  #skills {
+    padding: 8rem 0;
+    border-top: 1px solid rgba(201,169,110,0.08);
+    position: relative; overflow: hidden;
+  }
+  .skills-bg-text {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-display); font-size: 20vw;
+    font-weight: 300; font-style: italic;
+    color: rgba(201,169,110,0.025); white-space: nowrap;
+    pointer-events: none; user-select: none;
+  }
+  .skills-container {
+    max-width: 1100px; margin: 0 auto; padding: 0 3rem;
+    text-align: center; position: relative;
+  }
+  .section-heading {
+    font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300; line-height: 1.15;
+    color: var(--cream); margin-bottom: 1rem;
+  }
+  .section-heading em { font-style: italic; color: var(--gold-light); }
+  .section-sub {
+    font-family: var(--font-sans); font-size: 0.7rem;
+    letter-spacing: 0.25em; color: var(--muted);
+    text-transform: uppercase; margin-bottom: 4rem;
+  }
+  .skills-cloud {
+    display: flex; flex-wrap: wrap;
+    gap: 1rem; justify-content: center;
+    max-width: 800px; margin: 0 auto;
+  }
+  .skill-tag {
+    padding: 0.75rem 1.75rem;
+    border: 1px solid rgba(201,169,110,0.25);
+    font-family: var(--font-sans); font-size: 0.65rem;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(245,240,232,0.7);
+    transition: all 0.4s var(--transition);
+    position: relative; overflow: hidden;
+    cursor: default;
+  }
+  .skill-tag::before {
+    content: ''; position: absolute; inset: 0;
+    background: var(--gold); transform: translateX(-101%);
+    transition: transform 0.4s var(--transition);
+    z-index: 0;
+  }
+  .skill-tag span { position: relative; z-index: 1; }
+  .skill-tag:hover { color: var(--warm-black); border-color: var(--gold); }
+  .skill-tag:hover::before { transform: translateX(0); }
+  .skill-tag.large { padding: 1rem 2.5rem; font-size: 0.75rem; }
+
+  /* PORTFOLIO */
+  #portfolio {
+    padding: 8rem 0;
+    border-top: 1px solid rgba(201,169,110,0.08);
+  }
+  .portfolio-header {
+    max-width: 1200px; margin: 0 auto 4rem;
+    padding: 0 3rem;
+    display: flex; align-items: flex-end; justify-content: space-between;
+  }
+  .portfolio-header-text {}
+  .portfolio-filters {
+    display: flex; gap: 0.5rem; flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  .filter-btn {
+    font-family: var(--font-sans); font-size: 0.6rem;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    padding: 0.6rem 1.2rem;
+    background: transparent; border: 1px solid rgba(245,240,232,0.15);
+    color: rgba(245,240,232,0.5); cursor: pointer;
+    transition: all 0.3s;
+  }
+  .filter-btn.active, .filter-btn:hover {
+    background: var(--gold); border-color: var(--gold);
+    color: var(--warm-black);
+  }
+  .masonry-grid {
+    max-width: 1200px; margin: 0 auto;
+    padding: 0 3rem;
+    columns: 3 280px; column-gap: 1.5rem;
+  }
+  .project-card {
+    break-inside: avoid; margin-bottom: 1.5rem;
+    position: relative; overflow: hidden;
+    cursor: pointer; display: block;
+  }
+  .card-visual {
+    width: 100%; position: relative; overflow: hidden;
+  }
+  .card-art {
+    width: 100%;
+    display: block;
+    transition: transform 0.8s var(--transition);
+  }
+  .project-card:hover .card-art { transform: scale(1.05); }
+  .card-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(13,11,8,0.95) 0%, rgba(13,11,8,0.2) 50%, transparent 100%);
+    opacity: 0; transition: opacity 0.4s;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 1.5rem;
+  }
+  .project-card:hover .card-overlay { opacity: 1; }
+  .card-cat {
+    font-family: var(--font-sans); font-size: 0.55rem;
+    letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 0.5rem;
+  }
+  .card-title {
+    font-family: var(--font-display); font-size: 1.2rem;
+    font-weight: 300; color: var(--cream); line-height: 1.2;
+  }
+  .card-cta {
+    margin-top: 0.75rem;
+    font-family: var(--font-sans); font-size: 0.6rem;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold);
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .card-cta::after { content: '→'; }
+
+  /* Lightbox */
+  #lightbox {
+    position: fixed; inset: 0; z-index: 2000;
+    background: rgba(13,11,8,0.97);
+    display: none; align-items: center; justify-content: center;
+    padding: 2rem;
+  }
+  #lightbox.active { display: flex; }
+  .lightbox-content {
+    max-width: 900px; width: 100%;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4rem; align-items: center;
+  }
+  .lightbox-visual { width: 100%; }
+  .lightbox-close {
+    position: absolute; top: 2rem; right: 2rem;
+    background: none; border: 1px solid rgba(245,240,232,0.2);
+    color: var(--cream); width: 48px; height: 48px;
+    font-size: 1.2rem; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.3s;
+  }
+  .lightbox-close:hover { border-color: var(--gold); color: var(--gold); }
+  .lightbox-info {}
+  .lb-cat {
+    font-family: var(--font-sans); font-size: 0.6rem;
+    letter-spacing: 0.35em; color: var(--gold);
+    text-transform: uppercase; margin-bottom: 1.5rem;
+  }
+  .lb-title {
+    font-family: var(--font-display); font-size: 2.5rem;
+    font-weight: 300; color: var(--cream); line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+  .lb-desc {
+    font-family: var(--font-sans); font-size: 0.78rem;
+    font-weight: 300; line-height: 2; color: rgba(245,240,232,0.6);
+  }
+
+  /* VIRTUAL RUNWAY */
+  #runway {
+    padding: 8rem 0;
+    border-top: 1px solid rgba(201,169,110,0.08);
+    text-align: center;
+  }
+  .runway-container {
+    max-width: 1200px; margin: 0 auto; padding: 0 3rem;
+  }
+  .runway-stage {
+    position: relative; margin-top: 4rem;
+    background: linear-gradient(to bottom, rgba(44,36,32,0.5), var(--charcoal));
+    border: 1px solid rgba(201,169,110,0.1);
+    padding: 4rem 2rem 3rem;
+    overflow: hidden;
+  }
+  .runway-lights {
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    animation: runwayLight 3s ease-in-out infinite;
+  }
+  @keyframes runwayLight {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+  .runway-models {
+    display: flex; justify-content: center;
+    gap: 4rem; flex-wrap: wrap;
+  }
+  .runway-figure {
+    display: flex; flex-direction: column; align-items: center;
+    animation: runwayWalk 6s ease-in-out infinite;
+  }
+  .runway-figure:nth-child(2) { animation-delay: 1s; }
+  .runway-figure:nth-child(3) { animation-delay: 2s; }
+  @keyframes runwayWalk {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  .figure-silhouette {
+    width: 80px;
+  }
+  .figure-label {
+    margin-top: 1.5rem;
+    font-family: var(--font-sans); font-size: 0.6rem;
+    letter-spacing: 0.2em; color: var(--gold);
+    text-transform: uppercase;
+  }
+  .runway-floor {
+    position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+    width: 40%; height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(201,169,110,0.5), transparent);
+  }
+  .runway-floor-track {
+    position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+    width: 2px; height: 80%;
+    background: linear-gradient(to bottom, transparent, rgba(201,169,110,0.2));
+  }
+
+  /* MOODBOARD */
+  #moodboard {
+    padding: 8rem 0;
+    border-top: 1px solid rgba(201,169,110,0.08);
+  }
+  .moodboard-container {
+    max-width: 1200px; margin: 0 auto; padding: 0 3rem;
+  }
+  .moodboard-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    gap: 1rem; margin-top: 4rem;
+  }
+  .mood-cell {
+    overflow: hidden; position: relative;
+    transition: transform 0.4s var(--transition);
+  }
+  .mood-cell:hover { transform: scale(1.02); z-index: 5; }
+  .mood-cell.wide { grid-column: span 2; }
+  .mood-cell.tall { grid-row: span 2; }
+  .mood-art { width: 100%; display: block; }
+  .mood-label {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 2rem 1rem 1rem;
+    background: linear-gradient(transparent, rgba(13,11,8,0.9));
+    font-family: var(--font-sans); font-size: 0.6rem;
+    letter-spacing: 0.2em; color: var(--gold);
+    text-transform: uppercase; opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .mood-cell:hover .mood-label { opacity: 1; }
+
+  /* QUOTES CAROUSEL */
+  #quotes {
+    padding: 8rem 0;
+    border-top: 1px solid rgba(201,169,110,0.08);
+    text-align: center;
+    background: linear-gradient(135deg, var(--charcoal) 0%, var(--warm-black) 100%);
+  }
+  .quotes-container {
+    max-width: 800px; margin: 0 auto; padding: 0 3rem;
+  }
+  .quote-mark {
+    font-family: var(--font-display); font-size: 8rem;
+    line-height: 0; color: var(--gold); opacity: 0.2;
+    display: block; margin-bottom: 2rem;
+  }
+  .quote-text {
+    font-family: var(--font-display); font-size: clamp(1.3rem, 3vw, 2rem);
+    font-style: italic; font-weight: 300;
+    line-height: 1.6; color: var(--cream);
+    min-height: 3em;
+    transition: opacity 0.5s;
+  }
+  .quote-author {
+    margin-top: 2rem;
+    font-family: var(--font-sans); font-size: 0.6rem;
+    letter-spacing: 0.3em; color: var(--gold);
+    text-transform: uppercase;
+  }
+  .quote-dots {
+    display: flex; gap: 0.5rem; justify-content: center;
+    margin-top: 2.5rem;
+  }
+  .dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    border: 1px solid rgba(201,169,110,0.4);
+    cursor: pointer; transition: all 0.3s;
+  }
+  .dot.active { background: var(--gold); border-color: var(--gold); }
+
+  /* JOURNEY */
+  #journey {
+    padding: 8rem 0;
+    border-top: 1px solid rgba(201,169,110,0.08);
+  }
+  .journey-container {
+    max-width: 1000px; margin: 0 auto; padding: 0 3rem;
+  }
+  .timeline {
+    position: relative; margin-top: 5rem;
+    padding-left: 3rem;
+  }
+  .timeline::before {
+    content: ''; position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 1px; background: linear-gradient(to bottom, var(--gold), rgba(201,169,110,0.1));
+  }
+  .timeline-item {
+    position: relative; margin-bottom: 4rem;
+    opacity: 0; transform: translateX(-20px);
+    transition: all 0.6s var(--transition);
+  }
+  .timeline-item.visible { opacity: 1; transform: translateX(0); }
+  .timeline-dot {
+    position: absolute; left: -3.4rem; top: 0.3rem;
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--gold); border: 2px solid var(--warm-black);
+    box-shadow: 0 0 0 4px rgba(201,169,110,0.2);
+  }
+  .timeline-year {
+    font-family: var(--font-sans); font-size: 0.6rem;
+    letter-spacing: 0.3em; color: var(--gold);
+    text-transform: uppercase; margin-bottom: 0.75rem;
+  }
+  .timeline-title {
+    font-family: var(--font-display); font-size: 1.5rem;
+    font-weight: 300; color: var(--cream); margin-bottom: 0.5rem;
+  }
+  .timeline-desc {
+    font-family: var(--font-sans); font-size: 0.78rem;
+    font-weight: 300; line-height: 1.9;
+    color: rgba(245,240,232,0.55);
+  }
+
+  /* CONTACT */
+  #contact {
+    padding: 10rem 0;
+    border-top: 1px solid rgba(201,169,110,0.08);
+    position: relative; overflow: hidden;
+  }
+  .contact-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at center, rgba(44,36,32,0.4) 0%, transparent 70%);
+  }
+  .contact-container {
+    max-width: 700px; margin: 0 auto; padding: 0 3rem;
+    text-align: center; position: relative;
+  }
+  .contact-heading {
+    font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 300; line-height: 1.1; color: var(--cream);
+    margin-bottom: 1rem;
+  }
+  .contact-heading em { font-style: italic; color: var(--gold-light); }
+  .contact-sub {
+    font-family: var(--font-sans); font-size: 0.72rem;
+    letter-spacing: 0.15em; color: var(--muted);
+    margin-bottom: 4rem;
+  }
+  .contact-form {
+    display: flex; flex-direction: column; gap: 1.25rem;
+    text-align: left;
+  }
+  .form-group {
+    position: relative;
+  }
+  .form-input, .form-textarea {
+    width: 100%;
+    background: transparent;
+    border: none; border-bottom: 1px solid rgba(245,240,232,0.2);
+    padding: 1rem 0;
+    font-family: var(--font-sans); font-size: 0.78rem;
+    font-weight: 300; letter-spacing: 0.1em;
+    color: var(--cream); outline: none;
+    transition: border-color 0.3s;
+  }
+  .form-input::placeholder, .form-textarea::placeholder {
+    color: rgba(245,240,232,0.3); font-size: 0.68rem;
+    letter-spacing: 0.2em; text-transform: uppercase;
+  }
+  .form-input:focus, .form-textarea:focus { border-color: var(--gold); }
+  .form-textarea { resize: none; height: 100px; }
+  .form-line {
+    position: absolute; bottom: 0; left: 0;
+    width: 0; height: 1px; background: var(--gold);
+    transition: width 0.4s var(--transition);
+  }
+  .form-input:focus ~ .form-line,
+  .form-textarea:focus ~ .form-line { width: 100%; }
+  .form-submit {
+    width: 100%; margin-top: 1rem;
+    padding: 1.25rem;
+    background: transparent; border: 1px solid var(--gold);
+    font-family: var(--font-sans); font-size: 0.65rem;
+    font-weight: 300; letter-spacing: 0.35em; text-transform: uppercase;
+    color: var(--gold); cursor: pointer;
+    transition: all 0.4s var(--transition);
+    position: relative; overflow: hidden;
+  }
+  .form-submit::before {
+    content: ''; position: absolute; inset: 0;
+    background: var(--gold); transform: translateY(100%);
+    transition: transform 0.4s var(--transition);
+  }
+  .form-submit span { position: relative; z-index: 1; }
+  .form-submit:hover { color: var(--warm-black); }
+  .form-submit:hover::before { transform: translateY(0); }
+  .contact-links {
+    display: flex; gap: 2rem; justify-content: center;
+    margin-top: 3rem;
+  }
+  .contact-link {
+    font-family: var(--font-sans); font-size: 0.6rem;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--muted); text-decoration: none;
+    transition: color 0.3s;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .contact-link:hover { color: var(--gold); }
+
+  /* FOOTER */
+  footer {
+    padding: 3rem;
+    border-top: 1px solid rgba(201,169,110,0.1);
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-logo {
+    font-family: var(--font-display); font-size: 1rem;
+    font-weight: 300; letter-spacing: 0.2em;
+    color: rgba(245,240,232,0.4);
+  }
+  .footer-copy {
+    font-family: var(--font-sans); font-size: 0.58rem;
+    letter-spacing: 0.15em; color: rgba(245,240,232,0.25);
+    text-transform: uppercase;
+  }
+
+  /* SCROLL ANIMATIONS */
+  .reveal {
+    opacity: 0; transform: translateY(40px);
+    transition: opacity 0.8s var(--transition), transform 0.8s var(--transition);
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.15s; }
+  .reveal-delay-2 { transition-delay: 0.3s; }
+  .reveal-delay-3 { transition-delay: 0.45s; }
+
+  /* Dark/Light Toggle */
+  .theme-toggle {
+    position: fixed; bottom: 2rem; right: 2rem; z-index: 500;
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: rgba(26,23,20,0.9);
+    border: 1px solid rgba(201,169,110,0.3);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: all 0.3s;
+    font-size: 1rem;
+    backdrop-filter: blur(10px);
+  }
+  .theme-toggle:hover { border-color: var(--gold); }
+
+  body.light-mode {
+    --warm-black: #faf7f2;
+    --charcoal: #f0ebe0;
+    --dark-brown: #e8ddc8;
+    --cream: #1a1714;
+    --muted: #8a7d6e;
+    background: var(--warm-black);
+    color: var(--cream);
+  }
+  body.light-mode nav.scrolled {
+    background: rgba(250,247,242,0.92);
+    border-bottom: 1px solid rgba(201,169,110,0.2);
+  }
+  body.light-mode .nav-links a { color: rgba(26,23,20,0.6); }
+  body.light-mode .nav-links a:hover { color: var(--cream); }
+  body.light-mode .nav-logo { color: var(--cream); }
+  body.light-mode .hero-bg {
+    background: radial-gradient(ellipse at 70% 50%, rgba(232,221,200,0.8) 0%, var(--warm-black) 70%);
+  }
+  body.light-mode .hero-name { color: #1a1714; }
+  body.light-mode .btn-outline { color: #1a1714; border-color: rgba(26,23,20,0.3); }
+  body.light-mode .skills-bg-text { color: rgba(201,169,110,0.04); }
+  body.light-mode .about-img-placeholder {
+    background: linear-gradient(135deg, #e8ddc8 0%, rgba(201,169,110,0.3) 50%, #f0ebe0 100%);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 1.25rem 1.5rem; }
+    .nav-links { display: none; }
+    .about-container { grid-template-columns: 1fr; gap: 3rem; }
+    .about-badge { display: none; }
+    .masonry-grid { columns: 2 200px; padding: 0 1.5rem; }
+    .moodboard-grid { grid-template-columns: repeat(2, 1fr); }
+    .mood-cell.wide { grid-column: span 1; }
+    .lightbox-content { grid-template-columns: 1fr; gap: 2rem; }
+    .portfolio-header { flex-direction: column; gap: 1.5rem; }
+    footer { flex-direction: column; text-align: center; }
+  }
+  @media (max-width: 600px) {
+    .hero-name { font-size: 3rem; }
+    .hero-cta { flex-direction: column; align-items: center; }
+    .masonry-grid { columns: 1; padding: 0 1rem; }
+    .about-container, .skills-container, .runway-container,
+    .moodboard-container, .quotes-container, .journey-container,
+    .contact-container { padding: 0 1.5rem; }
+    .about-stats { grid-template-columns: 1fr 1fr; }
+    .moodboard-grid { grid-template-columns: 1fr; }
+    .mood-cell.tall { grid-row: span 1; }
+    nav { padding: 1rem 1.5rem; }
+  }
+
+  /* Fashion SVG styles */
+  .fashion-svg { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<!-- Custom Cursor -->
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- Navigation -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">V.G.</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#runway">Runway</a></li>
+    <li><a href="#journey">Journey</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Theme Toggle -->
+<div class="theme-toggle" id="themeToggle" title="Toggle theme">☾</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-overlay"></div>
+  <div class="hero-shapes">
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
+  </div>
+  <!-- Floating sketch elements -->
+  <div class="sketch-float sketch-1">
+    <svg width="120" height="200" viewBox="0 0 120 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="fashion-svg">
+      <ellipse cx="60" cy="30" rx="18" ry="22" stroke="#c9a96e" stroke-width="0.8"/>
+      <line x1="60" y1="52" x2="60" y2="95" stroke="#c9a96e" stroke-width="0.8"/>
+      <path d="M60 70 Q30 65 25 110" stroke="#c9a96e" stroke-width="0.8" fill="none"/>
+      <path d="M60 70 Q90 65 95 110" stroke="#c9a96e" stroke-width="0.8" fill="none"/>
+      <path d="M60 95 Q40 120 35 170" stroke="#c9a96e" stroke-width="0.8" fill="none"/>
+      <path d="M60 95 Q80 120 85 170" stroke="#c9a96e" stroke-width="0.8" fill="none"/>
+      <path d="M40 110 Q60 130 80 110" stroke="#c9a96e" stroke-width="0.5" fill="none" stroke-dasharray="2,3"/>
+    </svg>
+  </div>
+  <div class="sketch-float sketch-2">
+    <svg width="100" height="180" viewBox="0 0 100 180" fill="none" xmlns="http://www.w3.org/2000/svg" class="fashion-svg">
+      <ellipse cx="50" cy="25" rx="14" ry="18" stroke="#c9a96e" stroke-width="0.8"/>
+      <path d="M36 43 Q20 80 15 160" stroke="#c9a96e" stroke-width="0.8" fill="none"/>
+      <path d="M64 43 Q80 80 85 160" stroke="#c9a96e" stroke-width="0.8" fill="none"/>
+      <path d="M20 75 L80 75" stroke="#c9a96e" stroke-width="0.5" stroke-dasharray="2,3"/>
+      <path d="M15 100 Q50 115 85 100" stroke="#c9a96e" stroke-width="0.5" fill="none"/>
+    </svg>
+  </div>
+  <div class="sketch-float sketch-3">
+    <svg width="80" height="140" viewBox="0 0 80 140" fill="none" xmlns="http://www.w3.org/2000/svg" class="fashion-svg">
+      <ellipse cx="40" cy="20" rx="12" ry="15" stroke="#c9a96e" stroke-width="0.7"/>
+      <path d="M28 35 Q15 55 10 130" stroke="#c9a96e" stroke-width="0.7" fill="none"/>
+      <path d="M52 35 Q65 55 70 130" stroke="#c9a96e" stroke-width="0.7" fill="none"/>
+      <path d="M14 70 Q40 82 66 70" stroke="#c9a96e" stroke-width="0.5" fill="none"/>
+    </svg>
+  </div>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow">Creative Portfolio · 2024</p>
+    <h1 class="hero-name">
+      Vega<em>darss</em>hne<br>Gunaseelan
+    </h1>
+    <p class="hero-subtitle">Fashion Stylist &nbsp;•&nbsp; Fashion Illustrator &nbsp;•&nbsp; Creative Visionary</p>
+    <div class="hero-divider"></div>
+    <div class="hero-cta">
+      <a href="#portfolio" class="btn btn-primary">View Portfolio</a>
+      <a href="#runway" class="btn btn-outline">Explore Designs</a>
+      <a href="#contact" class="btn btn-outline">Contact</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <span class="scroll-label">Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-container">
+    <div class="about-image-frame reveal">
+      <div class="about-img-placeholder">
+        <div class="corner-accent tl"></div>
+        <div class="corner-accent tr"></div>
+        <div class="corner-accent bl"></div>
+        <div class="corner-accent br"></div>
+        <div class="frame-accent"></div>
+        <div class="about-img-art">
+          <svg width="220" height="360" viewBox="0 0 220 360" fill="none" xmlns="http://www.w3.org/2000/svg" class="fashion-svg" opacity="0.6">
+            <ellipse cx="110" cy="55" rx="32" ry="40" stroke="#c9a96e" stroke-width="1"/>
+            <path d="M78 95 Q45 120 30 200 Q20 260 25 340" stroke="#c9a96e" stroke-width="1" fill="none"/>
+            <path d="M142 95 Q175 120 190 200 Q200 260 195 340" stroke="#c9a96e" stroke-width="1" fill="none"/>
+            <path d="M78 95 Q60 110 50 140" stroke="#c9a96e" stroke-width="1" fill="none"/>
+            <path d="M142 95 Q160 110 170 140" stroke="#c9a96e" stroke-width="1" fill="none"/>
+            <path d="M25 170 Q110 200 195 170" stroke="#c9a96e" stroke-width="0.5" fill="none" stroke-dasharray="3,4"/>
+            <path d="M30 220 Q110 240 195 220" stroke="#c9a96e" stroke-width="0.5" fill="none" stroke-dasharray="3,4"/>
+            <path d="M78 95 Q110 85 142 95" stroke="#c9a96e" stroke-width="0.8" fill="none"/>
+            <circle cx="110" cy="95" r="3" fill="#c9a96e" opacity="0.6"/>
+            <path d="M110 95 L110 160" stroke="#c9a96e" stroke-width="0.8"/>
+            <path d="M95 100 Q85 130 82 200 Q80 260 82 340" stroke="#c9a96e" stroke-width="0.7" fill="none" opacity="0.4"/>
+            <path d="M125 100 Q135 130 138 200 Q140 260 138 340" stroke="#c9a96e" stroke-width="0.7" fill="none" opacity="0.4"/>
+            <ellipse cx="110" cy="118" rx="18" ry="8" stroke="#c9a96e" stroke-width="0.5" opacity="0.4"/>
+          </svg>
+        </div>
+        <span class="img-label">Fashion Illustration Study</span>
+      </div>
+      <div class="about-badge">
+        <div class="badge-text">Fashion<br>Stylist<br>·<br>Artist</div>
+      </div>
+    </div>
+
+    <div class="about-text">
+      <div class="section-label reveal">About</div>
+      <h2 class="about-heading reveal reveal-delay-1">
+        Where Art Meets<br><em>Fashion Forward</em><br>Vision
+      </h2>
+      <p class="about-body reveal reveal-delay-2">
+        Vegadarsshne Gunaseelan is a multidisciplinary creative force at the intersection of fashion styling, illustration, and apparel design. Her work breathes life into garments through the poetry of line, the drama of silhouette, and the precision of editorial storytelling.
+      </p>
+      <p class="about-body reveal reveal-delay-3">
+        Trained in the language of fashion, she translates trends into timeless visual narratives — each collection a conversation between fabric and fantasy, each illustration a window into a world carefully crafted.
+      </p>
+      <div class="about-stats reveal">
+        <div>
+          <span class="stat-num">50+</span>
+          <span class="stat-label">Styled Editorials</span>
+        </div>
+        <div>
+          <span class="stat-num">120+</span>
+          <span class="stat-label">Illustrations</span>
+        </div>
+        <div>
+          <span class="stat-num">8+</span>
+          <span class="stat-label">Collections</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="skills-bg-text">Couture</div>
+  <div class="skills-container">
+    <div class="section-label reveal" style="justify-content: center;">
+      <span style="display:none;"></span>Expertise
+    </div>
+    <h2 class="section-heading reveal reveal-delay-1">
+      A Spectrum of<br><em>Creative Mastery</em>
+    </h2>
+    <p class="section-sub reveal reveal-delay-2">Skills & Specialisations</p>
+    <div class="skills-cloud reveal reveal-delay-3">
+      <div class="skill-tag large"><span>Fashion Styling</span></div>
+      <div class="skill-tag"><span>Fashion Illustration</span></div>
+      <div class="skill-tag large"><span>Apparel Design</span></div>
+      <div class="skill-tag"><span>Creative Direction</span></div>
+      <div class="skill-tag"><span>Trend Forecasting</span></div>
+      <div class="skill-tag large"><span>Editorial Styling</span></div>
+      <div class="skill-tag"><span>Visual Storytelling</span></div>
+      <div class="skill-tag"><span>Garment Construction</span></div>
+      <div class="skill-tag large"><span>Mood Boarding</span></div>
+      <div class="skill-tag"><span>Colour Theory</span></div>
+      <div class="skill-tag"><span>Lookbook Curation</span></div>
+      <div class="skill-tag"><span>Fashion Consulting</span></div>
+      <div class="skill-tag large"><span>Visual Design</span></div>
+      <div class="skill-tag"><span>Fabric Research</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="portfolio-header">
+    <div class="portfolio-header-text">
+      <div class="section-label reveal">Portfolio</div>
+      <h2 class="section-heading reveal reveal-delay-1">
+        Selected <em>Works</em>
+      </h2>
+    </div>
+    <div class="portfolio-filters reveal reveal-delay-2">
+      <button class="filter-btn active" data-cat="all">All</button>
+      <button class="filter-btn" data-cat="illustration">Illustration</button>
+      <button class="filter-btn" data-cat="styling">Styling</button>
+      <button class="filter-btn" data-cat="apparel">Apparel</button>
+      <button class="filter-btn" data-cat="editorial">Editorial</button>
+    </div>
+  </div>
+  <div class="masonry-grid" id="masonryGrid"></div>
+</section>
+
+<!-- VIRTUAL RUNWAY -->
+<section id="runway">
+  <div class="runway-container">
+    <div class="section-label reveal" style="justify-content: center;">Feature</div>
+    <h2 class="section-heading reveal reveal-delay-1">Virtual <em>Runway</em> Showcase</h2>
+    <p class="section-sub reveal reveal-delay-2">A digital fashion week experience</p>
+    <div class="runway-stage reveal reveal-delay-3">
+      <div class="runway-lights"></div>
+      <div class="runway-floor-track"></div>
+      <div class="runway-models">
+        <div class="runway-figure">
+          <svg class="figure-silhouette" viewBox="0 0 80 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="40" cy="22" rx="14" ry="17" stroke="#c9a96e" stroke-width="1.2"/>
+            <path d="M26 39 Q10 70 8 190" stroke="#c9a96e" stroke-width="1.2" fill="none"/>
+            <path d="M54 39 Q70 70 72 190" stroke="#c9a96e" stroke-width="1.2" fill="none"/>
+            <path d="M26 39 Q15 50 12 80" stroke="#c9a96e" stroke-width="1.2" fill="none"/>
+            <path d="M54 39 Q65 50 68 80" stroke="#c9a96e" stroke-width="1.2" fill="none"/>
+            <path d="M8 100 Q40 115 72 100" stroke="#c9a96e" stroke-width="0.6" fill="none" stroke-dasharray="2,3"/>
+            <path d="M26 39 Q40 34 54 39" stroke="#e8c5bf" stroke-width="1" fill="none"/>
+            <rect x="22" y="39" width="36" height="55" rx="3" stroke="#e8c5bf" stroke-width="0.7" fill="none" opacity="0.5"/>
+          </svg>
+          <span class="figure-label">Autumn Edit</span>
+        </div>
+        <div class="runway-figure">
+          <svg class="figure-silhouette" viewBox="0 0 80 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="40" cy="22" rx="14" ry="17" stroke="#c9a96e" stroke-width="1.2"/>
+            <path d="M26 39 L20 190" stroke="#c9a96e" stroke-width="1.2"/>
+            <path d="M54 39 L60 190" stroke="#c9a96e" stroke-width="1.2"/>
+            <path d="M26 39 Q15 50 12 80" stroke="#c9a96e" stroke-width="1.2" fill="none"/>
+            <path d="M54 39 Q65 50 68 80" stroke="#c9a96e" stroke-width="1.2" fill="none"/>
+            <path d="M20 75 Q40 90 60 75" stroke="#c9a96e" stroke-width="0.7" fill="none"/>
+            <path d="M26 39 Q40 34 54 39 Q58 60 40 64 Q22 60 26 39Z" stroke="#gold" stroke-width="0.8" fill="rgba(201,169,110,0.08)"/>
+          </svg>
+          <span class="figure-label">Spring Luxe</span>
+        </div>
+        <div class="runway-figure">
+          <svg class="figure-silhouette" viewBox="0 0 80 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="40" cy="22" rx="14" ry="17" stroke="#c9a96e" stroke-width="1.2"/>
+            <path d="M26 39 Q5 80 4 190" stroke="#c9a96e" stroke-width="1.2" fill="none"/>
+            <path d="M54 39 Q75 80 76 190" stroke="#c9a96e" stroke-width="1.2" fill="none"/>
+            <path d="M26 39 Q15 50 12 80" stroke="#c9a96e" stroke-width="1.2" fill="none"/>
+            <path d="M54 39 Q65 50 68 80" stroke="#c9a96e" stroke-width="1.2" fill="none"/>
+            <path d="M4 90 Q40 110 76 90" stroke="#e8c5bf" stroke-width="0.7" fill="none"/>
+            <path d="M4 130 Q40 148 76 130" stroke="#e8c5bf" stroke-width="0.5" fill="none" stroke-dasharray="2,4"/>
+          </svg>
+          <span class="figure-label">Winter Couture</span>
+        </div>
+      </div>
+      <div class="runway-floor"></div>
+    </div>
+  </div>
+</section>
+
+<!-- MOODBOARD -->
+<section id="moodboard">
+  <div class="moodboard-container">
+    <div class="section-label reveal">Interactive</div>
+    <h2 class="section-heading reveal reveal-delay-1">Creative <em>Moodboard</em></h2>
+    <p class="section-sub reveal reveal-delay-2">Visual language of the collection</p>
+    <div class="moodboard-grid reveal reveal-delay-3" id="moodboardGrid"></div>
+  </div>
+</section>
+
+<!-- QUOTES -->
+<section id="quotes">
+  <div class="quotes-container">
+    <span class="quote-mark reveal">"</span>
+    <blockquote class="quote-text reveal reveal-delay-1" id="quoteText">
+      Fashion is the armour to survive the reality of everyday life.
+    </blockquote>
+    <p class="quote-author reveal reveal-delay-2" id="quoteAuthor">— Bill Cunningham</p>
+    <div class="quote-dots reveal reveal-delay-3" id="quoteDots"></div>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+<section id="journey">
+  <div class="journey-container">
+    <div class="section-label reveal">Journey</div>
+    <h2 class="section-heading reveal reveal-delay-1">Creative <em>Milestones</em></h2>
+    <p class="section-sub reveal reveal-delay-2" style="text-align:left; margin-bottom: 0;">A cinematic timeline of growth</p>
+    <div class="timeline" id="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2019 — Foundation</div>
+        <h3 class="timeline-title">Fashion Design Studies Begin</h3>
+        <p class="timeline-desc">Embarked on a transformative journey into the world of fashion — studying garment construction, textile science, and the historical language of dress. The first sketch, the first seam, the first collection.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2020 — Illustration</div>
+        <h3 class="timeline-title">Finding the Fashion Figure</h3>
+        <p class="timeline-desc">Developed a signature illustration style — elongated, editorial, expressive. Began creating fashion plates that fused contemporary silhouettes with fine art sensibility. First published illustrations in university journals.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2021 — Styling</div>
+        <h3 class="timeline-title">Editorial Styling Debut</h3>
+        <p class="timeline-desc">Assisted lead stylists on editorial photoshoots, developing a discerning eye for proportion, narrative, and the emotional language of clothing. Styled first independent editorial — a moody exploration of feminine power.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2022 — Collection</div>
+        <h3 class="timeline-title">Debut Apparel Collection</h3>
+        <p class="timeline-desc">Presented a 12-piece debut collection inspired by the architecture of South Indian temples — draping traditions reimagined through a contemporary, minimalist lens. Received recognition at university fashion showcase.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2023 — Industry</div>
+        <h3 class="timeline-title">Fashion Consultancy & Freelance</h3>
+        <p class="timeline-desc">Launched independent creative practice — working with emerging designers, brands, and content creators as a fashion stylist, creative director, and visual consultant. Building a portfolio of editorial and commercial work.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">Now — Vision</div>
+        <h3 class="timeline-title">Creating the Iconic</h3>
+        <p class="timeline-desc">Continues to evolve at the intersection of fashion illustration, styling, and conceptual design — crafting visual stories that resonate, inspire, and endure. The journey is just beginning.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-bg"></div>
+  <div class="contact-container">
+    <div class="section-label reveal" style="justify-content: center;">Connect</div>
+    <h2 class="contact-heading reveal reveal-delay-1">
+      Let's Create Something <em>Iconic</em>
+    </h2>
+    <p class="contact-sub reveal reveal-delay-2">Available for styling, illustration, consulting & collaborations</p>
+    <form class="contact-form reveal reveal-delay-3" onsubmit="handleSubmit(event)">
+      <div class="form-group">
+        <input type="text" class="form-input" placeholder="Your Name" required>
+        <div class="form-line"></div>
+      </div>
+      <div class="form-group">
+        <input type="email" class="form-input" placeholder="Email Address" required>
+        <div class="form-line"></div>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-input" placeholder="Subject / Project Type">
+        <div class="form-line"></div>
+      </div>
+      <div class="form-group">
+        <textarea class="form-textarea" placeholder="Tell me about your vision..."></textarea>
+        <div class="form-line"></div>
+      </div>
+      <button type="submit" class="form-submit"><span>Send Message →</span></button>
+    </form>
+    <div class="contact-links reveal">
+      <a href="mailto:vegadarsshne@email.com" class="contact-link">✉ Email</a>
+      <a href="#" class="contact-link">◈ Instagram</a>
+      <a href="#" class="contact-link">in LinkedIn</a>
+      <a href="#" class="contact-link">◻ Behance</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Vegadarsshne Gunaseelan</div>
+  <div class="footer-copy">© 2024 · Fashion Stylist & Illustrator · All rights reserved</div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div id="lightbox">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <div class="lightbox-content">
+    <div class="lightbox-visual" id="lightboxVisual"></div>
+    <div class="lightbox-info">
+      <div class="lb-cat" id="lbCat"></div>
+      <h2 class="lb-title" id="lbTitle"></h2>
+      <p class="lb-desc" id="lbDesc"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+// CURSOR
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursor-ring');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cursor.style.left = mx + 'px';
+  cursor.style.top = my + 'px';
+});
+function animateRing() {
+  rx += (mx - rx) * 0.12;
+  ry += (my - ry) * 0.12;
+  ring.style.left = rx + 'px';
+  ring.style.top = ry + 'px';
+  requestAnimationFrame(animateRing);
+}
+animateRing();
+document.querySelectorAll('a, button, .skill-tag, .project-card, .filter-btn, .mood-cell, .dot').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cursor.style.width = '20px';
+    cursor.style.height = '20px';
+    ring.style.width = '60px';
+    ring.style.height = '60px';
+    ring.style.opacity = '0.5';
+  });
+  el.addEventListener('mouseleave', () => {
+    cursor.style.width = '12px';
+    cursor.style.height = '12px';
+    ring.style.width = '40px';
+    ring.style.height = '40px';
+    ring.style.opacity = '1';
+  });
+});
+
+// NAV SCROLL
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// THEME
+const themeToggle = document.getElementById('themeToggle');
+let light = false;
+themeToggle.addEventListener('click', () => {
+  light = !light;
+  document.body.classList.toggle('light-mode', light);
+  themeToggle.textContent = light ? '☀' : '☾';
+});
+
+// SCROLL REVEAL
+const reveals = document.querySelectorAll('.reveal, .timeline-item');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+reveals.forEach(el => observer.observe(el));
+
+// Portfolio data with SVG illustrations
+const projects = [
+  {
+    cat: 'illustration', title: 'Reverie in Silk',
+    desc: 'A fashion illustration series exploring fluid silk draping through elongated editorial figures. Each piece rendered in fine ink with subtle watercolour washes, capturing the ephemeral quality of haute couture.',
+    h: 380,
+    art: `<svg viewBox="0 0 260 380" fill="none" xmlns="http://www.w3.org/2000/svg" width="100%">
+      <rect width="260" height="380" fill="url(#g1)"/>
+      <defs><linearGradient id="g1" x1="0" y1="0" x2="260" y2="380" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1a1714"/><stop offset="1" stop-color="#2c2420"/></linearGradient></defs>
+      <ellipse cx="130" cy="65" rx="28" ry="34" stroke="#c9a96e" stroke-width="0.8"/>
+      <path d="M102 99 Q60 140 52 340" stroke="#c9a96e" stroke-width="1" fill="none"/>
+      <path d="M158 99 Q200 140 208 340" stroke="#c9a96e" stroke-width="1" fill="none"/>
+      <path d="M102 99 Q75 110 68 150" stroke="#c9a96e" stroke-width="0.8" fill="none"/>
+      <path d="M158 99 Q185 110 192 150" stroke="#c9a96e" stroke-width="0.8" fill="none"/>
+      <path d="M52 180 Q130 200 208 180" stroke="#c9a96e" stroke-width="0.4" fill="none" stroke-dasharray="3,4"/>
+      <path d="M55 240 Q130 258 205 240" stroke="#c9a96e" stroke-width="0.4" fill="none" stroke-dasharray="3,4"/>
+      <path d="M102 99 Q130 90 158 99 Q165 120 130 128 Q95 120 102 99Z" fill="rgba(201,169,110,0.08)" stroke="#e8c5bf" stroke-width="0.6"/>
+      <text x="16" y="365" font-family="Cormorant Garamond,serif" font-size="11" fill="rgba(201,169,110,0.5)" letter-spacing="3">REVERIE</text>
+    </svg>`
+  },
+  {
+    cat: 'styling', title: 'Monochrome Manifesto',
+    desc: 'An editorial styling project exploring the power of tonal dressing — a manifesto for the modern minimalist. Shot in stark light with deliberate shadows, each look a study in restraint and quiet luxury.',
+    h: 300,
+    art: `<svg viewBox="0 0 260 300" fill="none" xmlns="http://www.w3.org/2000/svg" width="100%">
+      <rect width="260" height="300" fill="#0d0b08"/>
+      <rect x="0" y="0" width="130" height="300" fill="rgba(26,23,20,0.6)"/>
+      <circle cx="190" cy="80" r="50" fill="rgba(201,169,110,0.04)" stroke="rgba(201,169,110,0.2)" stroke-width="0.5"/>
+      <circle cx="190" cy="80" r="35" fill="rgba(201,169,110,0.04)" stroke="rgba(201,169,110,0.15)" stroke-width="0.5"/>
+      <ellipse cx="80" cy="90" rx="22" ry="28" stroke="#c9a96e" stroke-width="0.8"/>
+      <path d="M58 118 Q42 150 38 270" stroke="#c9a96e" stroke-width="0.8" fill="none"/>
+      <path d="M102 118 Q118 150 122 270" stroke="#c9a96e" stroke-width="0.8" fill="none"/>
+      <path d="M58 118 Q48 130 44 160" stroke="#c9a96e" stroke-width="0.8" fill="none"/>
+      <path d="M102 118 Q112 130 116 160" stroke="#c9a96e" stroke-width="0.8" fill="none"/>
+      <line x1="130" y1="0" x2="130" y2="300" stroke="rgba(201,169,110,0.1)" stroke-width="0.5"/>
+      <text x="140" y="200" font-family="Cormorant Garamond,serif" font-size="28" font-style="italic" fill="rgba(201,169,110,0.15)" letter-spacing="2">Mono</text>
+      <text x="140" y="230" font-family="Cormorant Garamond,serif" font-size="28" font-style="italic" fill="rgba(201,169,110,0.15)" letter-spacing="2">chrome</text>
+    </svg>`
+  },
+  {
+    cat: 'apparel', title: 'Temple Architecture',
+    desc: 'A capsule collection drawing from the geometric precision of Dravidian temple gopurams — structured silhouettes, handwoven textiles, and gold-thread embroidery translated into wearable architecture.',
+    h: 440,
+    art: `<svg viewBox="0 0 260 440" fill="none" xmlns="http://www.w3.org/2000/svg" width="100%">
+      <rect width="260" height="440" fill="url(#g2)"/>
+      <defs><linearGradient id="g2" x1="0" y1="0" x2="260" y2="440" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2c2420"/><stop offset="1" stop-color="#1a1714"/></linearGradient></defs>
+      <path d="M130 20 L180 80 L200 140 L190 200 L180 260 L170 320 L165 380 L155 440 L105 440 L95 380 L90 320 L80 260 L70 200 L60 140 L80 80 Z" fill="rgba(201,169,110,0.06)" stroke="#c9a96e" stroke-width="0.8"/>
+      <path d="M80 80 L180 80" stroke="#c9a96e" stroke-width="0.5" stroke-dasharray="2,3"/>
+      <path d="M70 140 L190 140" stroke="#c9a96e" stroke-width="0.5" stroke-dasharray="2,3"/>
+      <path d="M68 200 L192 200" stroke="#c9a96e" stroke-width="0.5" stroke-dasharray="2,3"/>
+      <path d="M75 260 L185 260" stroke="#c9a96e" stroke-width="0.5" stroke-dasharray="2,3"/>
+      <ellipse cx="130" cy="50" rx="18" ry="22" stroke="#e8c5bf" stroke-width="0.7"/>
+      <circle cx="130" cy="20" r="4" fill="#c9a96e" opacity="0.5"/>
+      <circle cx="80" cy="80" r="3" fill="#c9a96e" opacity="0.4"/>
+      <circle cx="180" cy="80" r="3" fill="#c9a96e" opacity="0.4"/>
+      <text x="16" y="430" font-family="Cormorant Garamond,serif" font-size="10" fill="rgba(201,169,110,0.4)" letter-spacing="3">TEMPLE EDIT</text>
+    </svg>`
+  },
+  {
+    cat: 'editorial', title: 'Golden Hour Editorial',
+    desc: 'A sun-drenched editorial concept exploring warmth, softness and the romance of late afternoon light — featuring diaphanous fabrics, fluid movement, and a palette drawn from sunset horizons.',
+    h: 330,
+    art: `<svg viewBox="0 0 260 330" fill="none" xmlns="http://www.w3.org/2000/svg" width="100%">
+      <rect width="260" height="330" fill="#1a1007"/>
+      <circle cx="200" cy="60" r="80" fill="rgba(201,169,110,0.08)"/>
+      <circle cx="200" cy="60" r="50" fill="rgba(201,169,110,0.08)"/>
+      <circle cx="200" cy="60" r="25" fill="rgba(201,169,110,0.1)"/>
+      <path d="M0 200 Q130 150 260 200 L260 330 L0 330Z" fill="rgba(201,169,110,0.06)"/>
+      <ellipse cx="90" cy="100" rx="22" ry="28" stroke="#e8c5bf" stroke-width="0.8"/>
+      <path d="M68 128 Q50 175 45 310" stroke="#e8c5bf" stroke-width="0.8" fill="none"/>
+      <path d="M112 128 Q130 175 135 310" stroke="#e8c5bf" stroke-width="0.8" fill="none"/>
+      <path d="M68 128 Q55 142 50 175" stroke="#e8c5bf" stroke-width="0.8" fill="none"/>
+      <path d="M112 128 Q125 142 130 175" stroke="#e8c5bf" stroke-width="0.8" fill="none"/>
+      <path d="M45 200 Q90 215 135 200" stroke="#c9a96e" stroke-width="0.4" fill="none" stroke-dasharray="2,4"/>
+      <path d="M68 128 Q90 122 112 128 Q118 155 90 161 Q62 155 68 128Z" fill="rgba(232,197,191,0.1)" stroke="#e8c5bf" stroke-width="0.6"/>
+    </svg>`
+  },
+  {
+    cat: 'illustration', title: 'Ink & Silhouette',
+    desc: 'A series of fashion illustrations exploring the drama of silhouette — where the outline tells the whole story. Rendered in fine ink with deliberate negative space creating tension and elegance in equal measure.',
+    h: 360,
+    art: `<svg viewBox="0 0 260 360" fill="none" xmlns="http://www.w3.org/2000/svg" width="100%">
+      <rect width="260" height="360" fill="#0d0b08"/>
+      <path d="M130 30 Q160 50 170 90 Q185 140 175 200 Q165 250 155 310 Q150 335 140 355 L120 355 Q110 335 105 310 Q95 250 85 200 Q75 140 90 90 Q100 50 130 30Z" fill="rgba(201,169,110,0.12)" stroke="#c9a96e" stroke-width="1.2"/>
+      <ellipse cx="130" cy="22" rx="16" ry="20" fill="rgba(201,169,110,0.15)" stroke="#c9a96e" stroke-width="0.8"/>
+      <line x1="40" y1="180" x2="90" y2="180" stroke="rgba(201,169,110,0.2)" stroke-width="0.5"/>
+      <line x1="170" y1="180" x2="220" y2="180" stroke="rgba(201,169,110,0.2)" stroke-width="0.5"/>
+      <path d="M85 200 Q55 220 45 300" stroke="#c9a96e" stroke-width="0.8" fill="none"/>
+      <path d="M175 200 Q205 220 215 300" stroke="#c9a96e" stroke-width="0.8" fill="none"/>
+      <text x="16" y="352" font-family="Josefin Sans,sans-serif" font-size="9" fill="rgba(201,169,110,0.4)" letter-spacing="4" font-weight="100">INK STUDY No.7</text>
+    </svg>`
+  },
+  {
+    cat: 'apparel', title: 'Fluid Geometry',
+    desc: 'A collection at the intersection of mathematical precision and organic flow — structured asymmetric cuts in hand-dyed natural fabrics. Each garment a geometric equation solved in textile.',
+    h: 290,
+    art: `<svg viewBox="0 0 260 290" fill="none" xmlns="http://www.w3.org/2000/svg" width="100%">
+      <rect width="260" height="290" fill="#14100d"/>
+      <polygon points="130,10 250,80 250,200 130,270 10,200 10,80" fill="rgba(201,169,110,0.04)" stroke="rgba(201,169,110,0.2)" stroke-width="0.5"/>
+      <polygon points="130,40 210,90 210,180 130,230 50,180 50,90" fill="rgba(201,169,110,0.04)" stroke="rgba(201,169,110,0.15)" stroke-width="0.5"/>
+      <ellipse cx="130" cy="80" rx="18" ry="22" stroke="#c9a96e" stroke-width="0.8"/>
+      <path d="M112 102 Q95 130 92 255" stroke="#c9a96e" stroke-width="0.8" fill="none"/>
+      <path d="M148 102 Q165 130 168 255" stroke="#c9a96e" stroke-width="0.8" fill="none"/>
+      <path d="M112 102 Q104 115 100 140" stroke="#c9a96e" stroke-width="0.8" fill="none"/>
+      <path d="M148 102 Q156 115 160 140" stroke="#c9a96e" stroke-width="0.8" fill="none"/>
+      <path d="M92 160 Q130 175 168 160" stroke="#c9a96e" stroke-width="0.4" fill="none" stroke-dasharray="2,3"/>
+    </svg>`
+  },
+  {
+    cat: 'editorial', title: 'Dusk Collective',
+    desc: 'Editorial concept for an imagined luxury brand — moody evening-wear photography direction featuring velvet draping, candlelight, and the intimate theatre of getting dressed for the night.',
+    h: 400,
+    art: `<svg viewBox="0 0 260 400" fill="none" xmlns="http://www.w3.org/2000/svg" width="100%">
+      <rect width="260" height="400" fill="#0a0806"/>
+      <rect x="0" y="250" width="260" height="150" fill="rgba(20,16,13,0.8)"/>
+      <circle cx="130" cy="50" r="30" fill="rgba(232,197,191,0.06)" stroke="rgba(232,197,191,0.1)" stroke-width="0.5"/>
+      <ellipse cx="130" cy="110" rx="25" ry="30" stroke="#e8c5bf" stroke-width="0.7"/>
+      <path d="M105 140 Q80 190 75 380" stroke="#e8c5bf" stroke-width="0.8" fill="none"/>
+      <path d="M155 140 Q180 190 185 380" stroke="#e8c5bf" stroke-width="0.8" fill="none"/>
+      <path d="M105 140 Q90 155 85 190" stroke="#e8c5bf" stroke-width="0.7" fill="none"/>
+      <path d="M155 140 Q170 155 175 190" stroke="#e8c5bf" stroke-width="0.7" fill="none"/>
+      <path d="M75 250 Q130 268 185 250" stroke="#c9a96e" stroke-width="0.5" fill="none"/>
+      <path d="M77 310 Q130 325 183 310" stroke="#c9a96e" stroke-width="0.4" fill="none" stroke-dasharray="2,4"/>
+      <path d="M105 140 Q130 132 155 140 Q160 168 130 175 Q100 168 105 140Z" fill="rgba(232,197,191,0.08)" stroke="#e8c5bf" stroke-width="0.6"/>
+      <text x="16" y="394" font-family="Cormorant Garamond,serif" font-size="10" font-style="italic" fill="rgba(201,169,110,0.4)" letter-spacing="2">Dusk Collective</text>
+    </svg>`
+  },
+  {
+    cat: 'styling', title: 'Power Dressing Redux',
+    desc: 'A modern reinterpretation of power dressing for the contemporary woman — structured shoulders, precise tailoring, and a palette of deep burgundy, cream, and steel. Authority redefined.',
+    h: 320,
+    art: `<svg viewBox="0 0 260 320" fill="none" xmlns="http://www.w3.org/2000/svg" width="100%">
+      <rect width="260" height="320" fill="#0d0b08"/>
+      <rect x="20" y="20" width="220" height="280" fill="none" stroke="rgba(201,169,110,0.08)" stroke-width="0.5"/>
+      <rect x="30" y="30" width="200" height="260" fill="none" stroke="rgba(201,169,110,0.05)" stroke-width="0.5"/>
+      <ellipse cx="130" cy="80" rx="24" ry="29" stroke="#c9a96e" stroke-width="0.9"/>
+      <path d="M106 109 Q106 109 80 109 L72 295" stroke="#c9a96e" stroke-width="1" fill="none"/>
+      <path d="M154 109 Q154 109 180 109 L188 295" stroke="#c9a96e" stroke-width="1" fill="none"/>
+      <path d="M80 109 L180 109" stroke="#c9a96e" stroke-width="0.8"/>
+      <path d="M80 109 L72 145" stroke="#c9a96e" stroke-width="0.8" fill="none"/>
+      <path d="M180 109 L188 145" stroke="#c9a96e" stroke-width="0.8" fill="none"/>
+      <path d="M72 145 L188 145" stroke="#c9a96e" stroke-width="0.5" stroke-dasharray="2,3"/>
+      <path d="M106 109 L130 100 L154 109" fill="rgba(201,169,110,0.1)" stroke="#c9a96e" stroke-width="0.6"/>
+      <path d="M72 210 L188 210" stroke="rgba(201,169,110,0.2)" stroke-width="0.4" stroke-dasharray="2,4"/>
+      <text x="16" y="315" font-family="Josefin Sans,sans-serif" font-size="9" fill="rgba(201,169,110,0.35)" letter-spacing="4" font-weight="100">POWER DRESSING</text>
+    </svg>`
+  },
+  {
+    cat: 'illustration', title: 'Couture Garden',
+    desc: 'A collection of botanical-inspired fashion illustrations — where floral motifs grow into gown structures, petals become pleats, and the garden becomes a runway. Delicate, detailed, dreamlike.',
+    h: 350,
+    art: `<svg viewBox="0 0 260 350" fill="none" xmlns="http://www.w3.org/2000/svg" width="100%">
+      <rect width="260" height="350" fill="#0f0c09"/>
+      <circle cx="130" cy="180" r="100" fill="rgba(201,169,110,0.03)" stroke="rgba(201,169,110,0.08)" stroke-width="0.5"/>
+      <ellipse cx="130" cy="65" rx="20" ry="25" stroke="#c9a96e" stroke-width="0.8"/>
+      <path d="M110 90 Q85 130 80 310" stroke="#c9a96e" stroke-width="0.8" fill="none"/>
+      <path d="M150 90 Q175 130 180 310" stroke="#c9a96e" stroke-width="0.8" fill="none"/>
+      <path d="M110 90 Q96 104 90 135" stroke="#c9a96e" stroke-width="0.7" fill="none"/>
+      <path d="M150 90 Q164 104 170 135" stroke="#c9a96e" stroke-width="0.7" fill="none"/>
+      <path d="M80 180 Q130 198 180 180" stroke="#c9a96e" stroke-width="0.4" fill="none" stroke-dasharray="2,3"/>
+      <ellipse cx="95" cy="155" rx="8" ry="12" stroke="rgba(201,169,110,0.4)" stroke-width="0.5" transform="rotate(-20 95 155)"/>
+      <ellipse cx="165" cy="155" rx="8" ry="12" stroke="rgba(201,169,110,0.4)" stroke-width="0.5" transform="rotate(20 165 155)"/>
+      <ellipse cx="80" cy="230" rx="10" ry="15" stroke="rgba(201,169,110,0.35)" stroke-width="0.5" transform="rotate(-30 80 230)"/>
+      <ellipse cx="180" cy="230" rx="10" ry="15" stroke="rgba(201,169,110,0.35)" stroke-width="0.5" transform="rotate(30 180 230)"/>
+      <circle cx="95" cy="145" r="3" fill="rgba(201,169,110,0.3)"/>
+      <circle cx="165" cy="145" r="3" fill="rgba(201,169,110,0.3)"/>
+      <text x="16" y="344" font-family="Cormorant Garamond,serif" font-size="10" font-style="italic" fill="rgba(201,169,110,0.4)" letter-spacing="3">Couture Garden</text>
+    </svg>`
+  }
+];
+
+// Build masonry grid
+function buildGrid(cat = 'all') {
+  const grid = document.getElementById('masonryGrid');
+  grid.innerHTML = '';
+  const filtered = cat === 'all' ? projects : projects.filter(p => p.cat === cat);
+  filtered.forEach((p, i) => {
+    const card = document.createElement('div');
+    card.className = 'project-card';
+    card.innerHTML = `
+      <div class="card-visual">
+        <div class="card-art" style="background:#0d0b08;">${p.art}</div>
+        <div class="card-overlay">
+          <div class="card-cat">${p.cat}</div>
+          <div class="card-title">${p.title}</div>
+          <div class="card-cta">View Project</div>
+        </div>
+      </div>`;
+    card.addEventListener('click', () => openLightbox(p));
+    grid.appendChild(card);
+  });
+}
+buildGrid();
+
+// Filters
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    buildGrid(btn.dataset.cat);
+  });
+});
+
+// Lightbox
+function openLightbox(p) {
+  document.getElementById('lightboxVisual').innerHTML = p.art.replace('width="100%"', 'width="100%" style="max-width:100%;"');
+  document.getElementById('lbCat').textContent = p.cat.toUpperCase() + ' PROJECT';
+  document.getElementById('lbTitle').textContent = p.title;
+  document.getElementById('lbDesc').textContent = p.desc;
+  document.getElementById('lightbox').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('active');
+  document.body.style.overflow = '';
+}
+document.getElementById('lightbox').addEventListener('click', function(e) {
+  if (e.target === this) closeLightbox();
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+// MOODBOARD
+const moodColors = [
+  { bg: '#1a1207', label: 'Amber Dusk', size: 'wide', h: 160 },
+  { bg: '#0d0b08', label: 'Noir Canvas', size: '', h: 160 },
+  { bg: '#1f1209', label: 'Burnt Sienna', size: '', h: 340 },
+  { bg: '#120a06', label: 'Deep Umber', size: '', h: 160 },
+  { bg: '#0d0f0a', label: 'Forest Night', size: 'wide', h: 160 },
+  { bg: '#18100e', label: 'Rose Smoke', size: '', h: 160 },
+  { bg: '#0a0d10', label: 'Midnight Steel', size: '', h: 160 },
+];
+const moodGrid = document.getElementById('moodboardGrid');
+const moodArts = [
+  `<svg viewBox="0 0 400 160" fill="none" width="100%" height="100%"><rect width="400" height="160" fill="#1a1207"/>
+  <circle cx="350" cy="30" r="60" fill="rgba(201,169,110,0.08)"/>
+  <path d="M20 80 Q100 60 200 80 Q300 100 380 80" stroke="#c9a96e" stroke-width="0.5" fill="none"/>
+  <text x="20" y="130" font-family="Cormorant Garamond,serif" font-size="40" font-style="italic" fill="rgba(201,169,110,0.12)" letter-spacing="5">Warmth</text></svg>`,
+  `<svg viewBox="0 0 200 160" fill="none" width="100%" height="100%"><rect width="200" height="160" fill="#0d0b08"/>
+  <rect x="40" y="40" width="120" height="80" fill="none" stroke="rgba(201,169,110,0.2)" stroke-width="0.5"/>
+  <ellipse cx="100" cy="80" rx="30" ry="40" stroke="#c9a96e" stroke-width="0.6"/>
+  <text x="60" y="150" font-family="Josefin Sans,sans-serif" font-size="8" fill="rgba(201,169,110,0.4)" letter-spacing="4">FORM</text></svg>`,
+  `<svg viewBox="0 0 200 340" fill="none" width="100%" height="100%"><rect width="200" height="340" fill="#1f1209"/>
+  <path d="M100 20 Q140 80 140 170 Q140 260 100 320" stroke="#c9a96e" stroke-width="0.8" fill="none"/>
+  <path d="M100 20 Q60 80 60 170 Q60 260 100 320" stroke="#c9a96e" stroke-width="0.8" fill="none"/>
+  <line x1="20" y1="170" x2="180" y2="170" stroke="rgba(201,169,110,0.15)" stroke-width="0.4" stroke-dasharray="3,4"/>
+  <text x="15" y="330" font-family="Cormorant Garamond,serif" font-size="12" font-style="italic" fill="rgba(201,169,110,0.35)">Silhouette</text></svg>`,
+  `<svg viewBox="0 0 200 160" fill="none" width="100%" height="100%"><rect width="200" height="160" fill="#120a06"/>
+  <polygon points="100,20 180,80 180,130 100,150 20,130 20,80" fill="none" stroke="rgba(201,169,110,0.2)" stroke-width="0.5"/>
+  <polygon points="100,40 160,80 160,120 100,135 40,120 40,80" fill="rgba(201,169,110,0.04)" stroke="rgba(201,169,110,0.1)" stroke-width="0.5"/>
+  <text x="70" y="150" font-family="Josefin Sans,sans-serif" font-size="8" fill="rgba(201,169,110,0.35)" letter-spacing="3">STRUCTURE</text></svg>`,
+  `<svg viewBox="0 0 400 160" fill="none" width="100%" height="100%"><rect width="400" height="160" fill="#0d0f0a"/>
+  <path d="M0 140 Q100 100 200 120 Q300 140 400 110" stroke="rgba(201,169,110,0.3)" stroke-width="0.5" fill="none"/>
+  <path d="M0 100 Q100 60 200 80 Q300 100 400 70" stroke="rgba(201,169,110,0.2)" stroke-width="0.5" fill="none"/>
+  <text x="20" y="80" font-family="Cormorant Garamond,serif" font-size="48" font-style="italic" fill="rgba(201,169,110,0.08)" letter-spacing="3">Flow</text></svg>`,
+  `<svg viewBox="0 0 200 160" fill="none" width="100%" height="100%"><rect width="200" height="160" fill="#18100e"/>
+  <circle cx="100" cy="70" r="40" fill="rgba(196,160,154,0.06)" stroke="rgba(196,160,154,0.2)" stroke-width="0.5"/>
+  <circle cx="100" cy="70" r="25" fill="rgba(196,160,154,0.05)" stroke="rgba(196,160,154,0.15)" stroke-width="0.5"/>
+  <circle cx="100" cy="70" r="10" fill="rgba(196,160,154,0.08)" stroke="rgba(196,160,154,0.2)" stroke-width="0.5"/>
+  <text x="60" y="148" font-family="Josefin Sans,sans-serif" font-size="8" fill="rgba(196,160,154,0.4)" letter-spacing="3">BLOOM</text></svg>`,
+  `<svg viewBox="0 0 200 160" fill="none" width="100%" height="100%"><rect width="200" height="160" fill="#0a0d10"/>
+  <line x1="20" y1="20" x2="180" y2="140" stroke="rgba(201,169,110,0.2)" stroke-width="0.5"/>
+  <line x1="180" y1="20" x2="20" y2="140" stroke="rgba(201,169,110,0.2)" stroke-width="0.5"/>
+  <rect x="40" y="40" width="120" height="80" fill="none" stroke="rgba(201,169,110,0.1)" stroke-width="0.5"/>
+  <text x="52" y="148" font-family="Josefin Sans,sans-serif" font-size="8" fill="rgba(201,169,110,0.35)" letter-spacing="3">GEOMETRY</text></svg>`,
+];
+const classes = ['wide', '', 'tall', '', 'wide', '', ''];
+moodColors.forEach((m, i) => {
+  const cell = document.createElement('div');
+  cell.className = `mood-cell${classes[i] ? ' ' + classes[i] : ''}`;
+  cell.style.background = m.bg;
+  cell.style.minHeight = m.h + 'px';
+  cell.innerHTML = `${moodArts[i]}<div class="mood-label">${m.label}</div>`;
+  moodGrid.appendChild(cell);
+});
+
+// QUOTES CAROUSEL
+const quotes = [
+  { text: "Fashion is the armour to survive the reality of everyday life.", author: "— Bill Cunningham" },
+  { text: "Elegance is not about being noticed, it's about being remembered.", author: "— Giorgio Armani" },
+  { text: "Fashion is not something that exists in dresses only. Fashion is in the sky, in the street — it has to do with ideas, the way we live, what is happening.", author: "— Coco Chanel" },
+  { text: "I don't design clothes. I design dreams.", author: "— Ralph Lauren" },
+  { text: "The beauty of fashion is that there is no formula. It is art. It is a feeling.", author: "— Anonymous" },
+];
+let qIdx = 0;
+const qText = document.getElementById('quoteText');
+const qAuthor = document.getElementById('quoteAuthor');
+const qDots = document.getElementById('quoteDots');
+
+quotes.forEach((_, i) => {
+  const d = document.createElement('div');
+  d.className = 'dot' + (i === 0 ? ' active' : '');
+  d.addEventListener('click', () => setQuote(i));
+  qDots.appendChild(d);
+});
+
+function setQuote(i) {
+  qText.style.opacity = '0';
+  setTimeout(() => {
+    qIdx = i;
+    qText.textContent = quotes[i].text;
+    qAuthor.textContent = quotes[i].author;
+    qText.style.opacity = '1';
+    document.querySelectorAll('.dot').forEach((d, j) => d.classList.toggle('active', j === i));
+  }, 300);
+}
+qText.style.transition = 'opacity 0.4s';
+setInterval(() => setQuote((qIdx + 1) % quotes.length), 5000);
+
+// Form
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.form-submit');
+  const span = btn.querySelector('span');
+  span.textContent = 'Message Sent ✓';
+  btn.style.background = 'var(--gold)';
+  btn.style.color = 'var(--warm-black)';
+  setTimeout(() => {
+    span.textContent = 'Send Message →';
+    btn.style.background = '';
+    btn.style.color = '';
+    e.target.reset();
+  }, 3000);
+}
+
+// Parallax hero
+window.addEventListener('scroll', () => {
+  const hero = document.getElementById('hero');
+  const scrolled = window.scrollY;
+  if (scrolled < window.innerHeight) {
+    const heroContent = hero.querySelector('.hero-content');
+    heroContent.style.transform = `translateY(${scrolled * 0.3}px)`;
+    heroContent.style.opacity = 1 - scrolled / (window.innerHeight * 0.7);
+  }
+});
+</script>
+</body>
+</html>

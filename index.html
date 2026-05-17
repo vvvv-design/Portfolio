@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vegadarsshne Gunaseelan — Portfolio Portal</title>
+    <meta name="description" content="Luxury fashion portfolio portal of Vegadarsshne Gunaseelan. Explore the Light Editorial and Dark Cinematic portfolio experiences.">
+    
+    <!-- Premium Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Josefin+Sans:wght@100;200;300;400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --cream: #FAF7F2;
+            --cream-dark: #FAF7F2;
+            --gold: #C9A96E;
+            --warm-black: #0D0B08;
+            --charcoal: #1A1714;
+            --font-display: 'Playfair Display', serif;
+            --font-editorial: 'Cormorant Garamond', serif;
+            --font-sans: 'Josefin Sans', sans-serif;
+            --transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: var(--font-sans);
+            background-color: var(--warm-black);
+            cursor: none;
+        }
+
+        /* Custom Cursor */
+        #cursor {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: var(--gold);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s, width 0.3s ease, height 0.3s ease, background 0.3s ease;
+            mix-blend-mode: difference;
+        }
+
+        #cursor-ring {
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(201, 169, 110, 0.5);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            transform: translate(-50%, -50%);
+            transition: transform 0.15s ease-out;
+        }
+
+        .hover-state #cursor {
+            width: 30px;
+            height: 30px;
+            background: rgba(201, 169, 110, 0.2);
+            border: 1px solid var(--gold);
+        }
+
+        /* Split Screen Container */
+        .split-container {
+            display: flex;
+            width: 100%;
+            height: 100vh;
+            position: relative;
+        }
+
+        /* Middle Brand Badge */
+        .brand-badge {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            text-align: center;
+            pointer-events: none;
+            mix-blend-mode: difference;
+            color: var(--cream);
+            transition: var(--transition);
+        }
+
+        .brand-initials {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .brand-subtitle {
+            font-family: var(--font-sans);
+            font-size: clamp(0.5rem, 1vw, 0.75rem);
+            font-weight: 300;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+        }
+
+        /* Individual Side styling */
+        .side {
+            flex: 1;
+            height: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        /* Light Mode Side */
+        .side.light-side {
+            background-color: var(--cream);
+            color: var(--charcoal);
+        }
+
+        /* Dark Mode Side */
+        .side.dark-side {
+            background-color: var(--warm-black);
+            color: var(--cream);
+            border-left: 1px solid rgba(201, 169, 110, 0.1);
+        }
+
+        /* Background Visuals and Overlays */
+        .side-bg {
+            position: absolute;
+            inset: 0;
+            opacity: 0.15;
+            transition: var(--transition);
+            background-position: center;
+            background-size: cover;
+            filter: grayscale(100%);
+        }
+
+        .light-side .side-bg {
+            background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80');
+        }
+
+        .dark-side .side-bg {
+            background-image: url('https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&q=80');
+        }
+
+        .side-overlay {
+            position: absolute;
+            inset: 0;
+            transition: var(--transition);
+        }
+
+        .light-side .side-overlay {
+            background: radial-gradient(circle at 40% 50%, transparent 20%, rgba(250, 247, 242, 0.8) 80%);
+        }
+
+        .dark-side .side-overlay {
+            background: radial-gradient(circle at 60% 50%, transparent 20%, rgba(13, 11, 8, 0.9) 80%);
+        }
+
+        /* Side Content */
+        .side-content {
+            position: relative;
+            z-index: 5;
+            text-align: center;
+            padding: 2rem;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .eyebrow {
+            font-family: var(--font-sans);
+            font-size: 0.65rem;
+            font-weight: 300;
+            letter-spacing: 0.5em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .side-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 3.5vw, 3.5rem);
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: var(--transition);
+            transition-delay: 0.1s;
+        }
+
+        .side-title em {
+            font-family: var(--font-editorial);
+            font-style: italic;
+        }
+
+        .btn {
+            font-family: var(--font-sans);
+            font-size: 0.7rem;
+            font-weight: 300;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            padding: 1.2rem 2.5rem;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            background: transparent;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+            transform: translateY(20px);
+            opacity: 0;
+            transition-delay: 0.2s;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--gold);
+            transform: translateY(100%);
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        /* Hover Interactions */
+        .side:hover {
+            flex: 1.4;
+        }
+
+        .side:hover .side-bg {
+            opacity: 0.35;
+            transform: scale(1.05);
+            filter: grayscale(0%);
+        }
+
+        .side:hover .side-overlay {
+            background: transparent;
+        }
+
+        .side:hover .eyebrow,
+        .side:hover .side-title,
+        .side:hover .btn {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .side:hover .btn:hover {
+            color: var(--warm-black);
+        }
+
+        .side:hover .btn:hover::before {
+            transform: translateY(0);
+        }
+
+        .light-side:hover .btn:hover {
+            color: var(--cream);
+        }
+
+        /* Initial Load animation to invite interaction */
+        .reveal {
+            transform: translateY(0) !important;
+            opacity: 1 !important;
+        }
+
+        /* Audio Indicator - Premium vibe */
+        .brand-decor {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            opacity: 0.5;
+            transition: opacity 0.5s ease;
+        }
+
+        .decor-line {
+            width: 100px;
+            height: 1px;
+            background: var(--gold);
+        }
+
+        .decor-text {
+            font-family: var(--font-sans);
+            font-size: 0.6rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--gold);
+            white-space: nowrap;
+        }
+
+        /* Responsive styling */
+        @media (max-width: 768px) {
+            body, html {
+                overflow-y: auto;
+                cursor: auto;
+            }
+
+            #cursor, #cursor-ring {
+                display: none;
+            }
+
+            .split-container {
+                flex-direction: column;
+                height: auto;
+            }
+
+            .side {
+                height: 50vh;
+                min-height: 400px;
+            }
+
+            .side:hover {
+                flex: 1;
+            }
+
+            .brand-badge {
+                display: none;
+            }
+
+            .eyebrow, .side-title, .btn {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            .side-bg {
+                opacity: 0.25;
+                filter: grayscale(0%);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Custom Cursor elements -->
+    <div id="cursor"></div>
+    <div id="cursor-ring"></div>
+
+    <div class="split-container">
+        
+        <!-- Brand identity hovering in the center -->
+        <div class="brand-badge">
+            <div class="brand-initials">VG</div>
+            <div class="brand-subtitle">Visual Stylist</div>
+        </div>
+
+        <!-- Left Side: Light Mode Portfolio -->
+        <a href="veg.html" class="side light-side">
+            <div class="side-bg"></div>
+            <div class="side-overlay"></div>
+            <div class="side-content">
+                <span class="eyebrow">Experience One</span>
+                <h2 class="side-title">The <em>Light</em><br>Editorial</h2>
+                <div class="btn">Enter Experience</div>
+            </div>
+        </a>
+
+        <!-- Right Side: Dark Mode Portfolio -->
+        <a href="vega.html" class="side dark-side">
+            <div class="side-bg"></div>
+            <div class="side-overlay"></div>
+            <div class="side-content">
+                <span class="eyebrow">Experience Two</span>
+                <h2 class="side-title">The <em>Dark</em><br>Cinematic</h2>
+                <div class="btn">Enter Experience</div>
+            </div>
+        </a>
+
+        <!-- Premium editorial brand accent line at bottom -->
+        <div class="brand-decor">
+            <div class="decor-line"></div>
+            <span class="decor-text">Vegadarsshne Gunaseelan</span>
+            <div class="decor-line"></div>
+        </div>
+
+    </div>
+
+    <script>
+        // Custom Cursor interaction logic
+        const cursor = document.getElementById('cursor');
+        const cursorRing = document.getElementById('cursor-ring');
+        const links = document.querySelectorAll('a, button, .side');
+
+        document.addEventListener('mousemove', (e) => {
+            const { clientX, clientY } = e;
+            
+            // Core cursor position
+            cursor.style.left = clientX + 'px';
+            cursor.style.top = clientY + 'px';
+            
+            // Lagging cursor ring position
+            cursorRing.animate({
+                left: clientX + 'px',
+                top: clientY + 'px'
+            }, { duration: 500, fill: "forwards" });
+        });
+
+        // Add hover effects on cursor
+        links.forEach(link => {
+            link.addEventListener('mouseenter', () => {
+                document.body.classList.add('hover-state');
+            });
+            link.addEventListener('mouseleave', () => {
+                document.body.classList.add('hover-state');
+                document.body.classList.remove('hover-state');
+            });
+        });
+
+        // Trigger reveal animation on load
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const firstSideContent = document.querySelectorAll('.light-side .eyebrow, .light-side .side-title, .light-side .btn');
+                const secondSideContent = document.querySelectorAll('.dark-side .eyebrow, .dark-side .side-title, .dark-side .btn');
+                
+                // On mobile, show elements immediately. On desktop, let the hover reveal it, or pulse it briefly.
+                if (window.innerWidth <= 768) {
+                    firstSideContent.forEach(el => el.classList.add('reveal'));
+                    secondSideContent.forEach(el => el.classList.add('reveal'));
+                } else {
+                    // Brief stagger animation on desktop entry, then hide so hover triggers it
+                    document.querySelectorAll('.eyebrow, .side-title, .btn').forEach(el => {
+                        el.style.opacity = '1';
+                        el.style.transform = 'translateY(0)';
+                    });
+                    
+                    setTimeout(() => {
+                        document.querySelectorAll('.eyebrow, .side-title, .btn').forEach(el => {
+                            el.style.opacity = '';
+                            el.style.transform = '';
+                        });
+                    }, 1800);
+                }
+            }, 500);
+        });
+    </script>
+</body>
+</html>
